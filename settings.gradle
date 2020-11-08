@@ -1,0 +1,3 @@
+rootProject.name = 'finances_controller'
+include 'application'
+
