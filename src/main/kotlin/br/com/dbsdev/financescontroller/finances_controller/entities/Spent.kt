@@ -1,6 +1,8 @@
 package br.com.dbsdev.financescontroller.finances_controller.entities
 
 import br.com.dbsdev.financescontroller.finances_controller.controllers.v1.dto.SpentDTO
+import io.swagger.annotations.ApiModel
+import io.swagger.annotations.ApiModelProperty
 import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.mapping.Document
 import java.math.BigDecimal

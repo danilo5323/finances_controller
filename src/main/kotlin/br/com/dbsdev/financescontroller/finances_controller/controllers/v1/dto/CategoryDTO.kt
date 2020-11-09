@@ -1,7 +1,9 @@
 package br.com.dbsdev.financescontroller.finances_controller.controllers.v1.dto
 
 import br.com.dbsdev.financescontroller.finances_controller.entities.Category
+import io.swagger.annotations.ApiModel
 
+@ApiModel
 data class CategoryDTO(
         var id: Long? = null,
         val description: String
