@@ -1,5 +1,6 @@
 package br.com.dbsdev.financescontroller.finances_controller.entities
 
+import br.com.dbsdev.financescontroller.finances_controller.controllers.v1.dto.SpentDTO
 import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.mapping.Document
 import java.math.BigDecimal
@@ -14,8 +15,20 @@ data class Spent(
         val wayOfPayment: WayOfPayment,
         val localBuilt: String,
         val dateOfSpent: LocalDateTime,
-        val categorySpent: Category
+        val categorySpent: Category,
+        var deleted: LocalDateTime?
 
 ) {
-
+        companion object {
+                fun fromDTO(spentDto: SpentDTO) = Spent(
+                        spentDto.id,
+                        spentDto.amountSpent,
+                        spentDto.description,
+                        spentDto.wayOfPayment,
+                        spentDto.localBuilt,
+                        spentDto.dateOfSpent,
+                        Category.fromDTO(spentDto.categorySpent),
+                        null
+                )
+        }
 }
