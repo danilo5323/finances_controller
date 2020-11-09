@@ -30,7 +30,7 @@ class RegisterController( @Resource val registerManager: RegisterManager) {
         return registerManager.searchSpents(rangeInitial, rangeFinal)
     }
 
-    @PutMapping
+    @PutMapping("/{id}")
     fun updateRegister(@PathVariable id: String,
                        @RequestBody newSpent: SpentDTO) {
         registerManager.updateRegister(id, newSpent)

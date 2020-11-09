@@ -28,7 +28,7 @@ data class Spent(
                         spentDto.description,
                         spentDto.wayOfPayment,
                         spentDto.localBuilt,
-                        spentDto.dateOfSpent,
+                        LocalDateTime.now(),
                         Category.fromDTO(spentDto.categorySpent),
                         null
                 )

@@ -17,7 +17,7 @@ data class SpentDTO(
         @ApiModelProperty(dataType = "String", allowableValues = "CREDIT_CARD, DEBIT_CARD, IN_CASH")
         val wayOfPayment: WayOfPayment,
         val localBuilt: String,
-        val dateOfSpent: LocalDateTime,
+        val dateOfSpent: LocalDateTime?,
         val categorySpent: CategoryDTO
         ) {
     companion object {

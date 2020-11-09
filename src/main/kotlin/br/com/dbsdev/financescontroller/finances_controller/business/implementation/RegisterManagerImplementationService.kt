@@ -19,7 +19,10 @@ class RegisterManagerImplementationService(
 ) : RegisterManager{
 
     override fun updateRegister(id: String, spent: SpentDTO) {
-        TODO("Not yet implemented")
+        //val entity = searchEntity(id)
+        val entity = Spent.fromDTO(spent)
+        entity.id = id;
+        spentRepository.save(  entity )
     }
 
     override fun searchSpents(initialRegister: LocalDateTime, endRegister: LocalDateTime): List<SpentDTO> {
