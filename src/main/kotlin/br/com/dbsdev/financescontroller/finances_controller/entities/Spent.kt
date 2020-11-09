@@ -1,9 +1,14 @@
 package br.com.dbsdev.financescontroller.finances_controller.entities
 
+import org.springframework.data.annotation.Id
+import org.springframework.data.mongodb.core.mapping.Document
 import java.math.BigDecimal
 import java.time.LocalDateTime
 
+@Document(collection = "Spents")
 data class Spent(
+        @Id
+        var id: String?,
         val amountSpent: BigDecimal,
         val description: String,
         val wayOfPayment: WayOfPayment,

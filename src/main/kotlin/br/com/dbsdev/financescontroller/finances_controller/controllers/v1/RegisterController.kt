@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.PutMapping
+import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
 import java.time.LocalDateTime
 import javax.annotation.Resource
@@ -18,7 +20,7 @@ import javax.annotation.Resource
 class RegisterController( @Resource val registerManager: RegisterManager) {
 
     @GetMapping("/{id}")
-    fun searchSpentRegisterById(@PathVariable id: Long): Spent {
+    fun searchSpentRegisterById(@PathVariable id: String): Spent {
         return registerManager.searchSpentById(id)
     }
 
@@ -28,17 +30,18 @@ class RegisterController( @Resource val registerManager: RegisterManager) {
     }
 
     @PutMapping
-    fun updateRegister(@PathVariable id: Long, @PathVariable newSpent: Spent) {
+    fun updateRegister(@PathVariable id: String,
+                       @RequestBody newSpent: Spent) {
         registerManager.updateRegister(id, newSpent)
     }
 
     @PostMapping
-    fun createSpentRegister(@PathVariable newSpent: Spent): Long {
+    fun createSpentRegister(@RequestBody newSpent: Spent): String {
         return registerManager.includeRegister(newSpent)
     }
 
     @DeleteMapping
-    fun deleteSpentRegister(id: Long): Spent {
+    fun deleteSpentRegister(@RequestParam id: String): Spent {
         return registerManager.removeRegister(id)
     }
 }

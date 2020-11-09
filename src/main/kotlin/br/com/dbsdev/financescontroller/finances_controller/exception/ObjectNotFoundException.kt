@@ -1,4 +1,6 @@
 package br.com.dbsdev.financescontroller.finances_controller.exception
 
-class ObjectNotFoundException {
+import java.lang.RuntimeException
+
+class ObjectNotFoundException(message: String?) : RuntimeException(message) {
 }
